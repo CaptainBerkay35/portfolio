@@ -27,7 +27,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setIsDark(!isDark)}
-      className="fixed top-6 right-8 z-[60] p-3 rounded-full bg-gray-200 dark:bg-brand-gray text-brand-dark dark:text-brand-white transition-colors duration-300 shadow-lg hover:scale-110 active:scale-95"
+      className="fixed top-6 right-6 z-[60] p-3 rounded-full bg-gray-200 dark:bg-brand-gray text-brand-dark dark:text-brand-white transition-colors duration-300 shadow-lg hover:scale-110 active:scale-95"
       aria-label="Temayı Değiştir"
     >
       <motion.div

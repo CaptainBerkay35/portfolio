@@ -3,3 +3,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Tüm sayfa için Scrollbar'ı gizle */
+  html {
+    scrollbar-width: none; /* Firefox için */
+    -ms-overflow-style: none; /* IE ve Edge için */
+  }
+
+  /* Chrome, Safari ve Opera için */
+  html::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Eğer body üzerinde de scroll varsa onu da garantiye alalım */
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
