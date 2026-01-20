@@ -10,7 +10,6 @@ import Footer from './components/layout/Footer'; // <--- Footer'ı Import Et
 
 export default function App() {
   const { scrollY } = useScroll();
-  
   const heroOpacity = useTransform(scrollY, [400, 600], [0, 1]);
   const heroY = useTransform(scrollY, [400, 600], [50, 0]);
 
@@ -21,40 +20,43 @@ export default function App() {
       <SplitHeader />
       <ScrollIndicator />  
       
-      {/* --- ÜST KATMAN (HERO, PROJECTS VS.) --- */}
-      {/* 1. relative & z-10: Footer'ın üzerinde durması için.
-          2. bg-white...: Footer'ı şeffaf olmaması için boyuyoruz.
-          3. mb-[800px]: Footer'ın yüksekliği kadar alt boşluk bırakıyoruz ki kaydırınca footer görünsün.
-          4. shadow-2xl: Footer'ın üzerine binerken gölge düşürsün.
-      */}
+      {/* ÜST KATMAN */}
       <main className="relative z-10 bg-white dark:bg-brand-black transition-colors duration-500 shadow-2xl mb-[800px] rounded-b-3xl">
         
         <div className="relative pt-[100vh]">
-          {/* HERO */}
-          <motion.div style={{ opacity: heroOpacity, y: heroY }}>
-            <Hero />
-          </motion.div>
+          
+          {/* HERO (ID: hero) */}
+          <section id="hero">
+            <motion.div style={{ opacity: heroOpacity, y: heroY }}>
+              <Hero />
+            </motion.div>
+          </section>
 
           {/* MARQUEE */}
           <div className="mt-20 mb-32">
               <Marquee />
           </div>
 
-          {/* TECRÜBELER */}
-          <Experience />
+          {/* TECRÜBELER (ID: tecrube) */}
+          {/* Experience bileşeni içinde section varsa id'yi oraya da verebilirsin ama sarmalamak garanti yöntemdir */}
+          <div id="tecrube">
+            <Experience />
+          </div>
 
-          {/* PROJELER */}
-          <Projects />
+          {/* PROJELER (ID: projeler) */}
+          {/* Projects bileşeni içinde zaten id="projeler" vermiştik ama garanti olsun diye buraya da bakabilirsin. 
+              Eğer Projects.jsx içinde <section id="projeler"> varsa buraya div sarmana gerek yok. */}
+          <Projects /> 
           
-          {/* Alt kısmı biraz yumuşatmak için extra boşluk */}
           <div className="h-20 bg-white dark:bg-brand-black rounded-b-3xl"></div>
         </div>
 
       </main>
 
-      {/* --- ALT KATMAN (FOOTER REVEAL) --- */}
-      {/* App.jsx içinde Footer'ı main'in DIŞINA koyuyoruz */}
-      <Footer />
+      {/* FOOTER (ID: iletisim) */}
+      <div id="iletisim">
+        <Footer />
+      </div>
       
     </div>
   );

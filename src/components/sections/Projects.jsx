@@ -56,11 +56,11 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projeler" className="py-32 bg-white dark:bg-brand-black transition-colors duration-500">
+    <section id="projeler" className="py-8 bg-white dark:bg-brand-black transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* Başlık */}
-        <div className="mb-20 flex flex-col md:flex-row items-end justify-between gap-6 border-b border-gray-200 dark:border-gray-800 pb-8">
+        <div className="mb-12 flex flex-col md:flex-row items-end justify-between gap-6 border-b border-gray-200 dark:border-gray-800 pb-8">
           <div>
             <span className="text-sm font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">Portfolio</span>
             <h2 className="text-4xl md:text-6xl font-heading font-bold text-gray-900 dark:text-brand-white mt-2 tracking-tighter">
