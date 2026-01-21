@@ -6,7 +6,8 @@ import Hero from './components/sections/Hero';
 import Marquee from './components/sections/Marquee';
 import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects';
-import Footer from './components/layout/Footer'; // <--- Footer'ı Import Et
+import Footer from './components/layout/Footer';
+import CustomCursor from "./components/ui/CustomCursor";
 
 export default function App() {
   const { scrollY } = useScroll();
@@ -15,7 +16,7 @@ export default function App() {
 
   return (
     <div className="font-sans">
-      
+      <CustomCursor />
       <ThemeToggle />
       <SplitHeader />
       <ScrollIndicator />  

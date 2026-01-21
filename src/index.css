@@ -36,3 +36,12 @@
     scrollbar-width: none;  /* Firefox */
     scroll-behavior: smooth; /* Yumuşak kaydırma */
 }
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  
+  a, button, .cursor-pointer {
+    cursor: none !important;
+  }
+}
