@@ -37,7 +37,7 @@ const SplitHeader = () => {
            BERKAY<span className="text-gray-400 dark:text-gray-600">.</span>DEV
            </h1>
            <p className="mt-4 text-gray-600 dark:text-brand-muted text-sm md:text-base font-sans transition-colors duration-500">
-           Frontend Developer & UI Designer
+           Bilgisayar Mühendisi
            </p>
         </motion.div>
 
@@ -46,10 +46,14 @@ const SplitHeader = () => {
             style={{ opacity: iconOpacity, pointerEvents: iconPointerEvents }}
             className="absolute right-0 top-0 h-full w-[10%] min-w-[60px] flex flex-col items-center justify-center gap-6 border-l border-gray-200 dark:border-brand-gray/20 transition-colors duration-500 bg-gray-50 dark:bg-brand-dark"
         >
-             <span className="font-heading font-bold text-gray-900 dark:text-brand-white mb-4 border-b border-gray-200 dark:border-brand-gray pb-4 transition-colors duration-500">B.</span>
+            <img 
+               src="/favicon.svg" 
+               alt="Berkay Kaptan Logo" 
+               className="w-10 h-10 mb-4 pb-4 border-b border-gray-200 dark:border-brand-gray/20 object-contain"
+             />
              {/* Rengi Gri -> Siyah/Beyaz yaptık */}
-             <a href="https://github.com" target="_blank" rel="noreferrer" className="text-2xl text-gray-400 hover:text-gray-900 dark:text-gray-600 dark:hover:text-white transition-colors duration-300"><FaGithub /></a>
-             <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-2xl text-gray-400 hover:text-gray-900 dark:text-gray-600 dark:hover:text-white transition-colors duration-300"><FaLinkedin /></a>
+             <a href="https://github.com/CaptainBerkay35" target="_blank" rel="noreferrer" className="text-2xl text-gray-400 hover:text-gray-900 dark:text-gray-600 dark:hover:text-white transition-colors duration-300"><FaGithub /></a>
+             <a href="https://www.linkedin.com/in/berkay-kaptan-957156239/" target="_blank" rel="noreferrer" className="text-2xl text-gray-400 hover:text-gray-900 dark:text-gray-600 dark:hover:text-white transition-colors duration-300"><FaLinkedin /></a>
         </motion.div>
 
       </motion.div>
@@ -59,18 +63,38 @@ const SplitHeader = () => {
         style={{ x: moveRight }} 
         className="w-1/2 h-full bg-gray-50 dark:bg-brand-dark border-l border-gray-200 dark:border-brand-gray flex items-center justify-center pointer-events-auto relative transition-colors duration-500"
       >
-        {/* BÜYÜK NAVİGASYON (Sağa Kaybolan) */}
-        <motion.div 
-           style={{ opacity: mainContentOpacity }}
-           className="min-w-[300px] text-center"
+       {/* BÜYÜK NAVİGASYON (Sağa Kaybolan) */}
+<motion.div 
+    style={{ opacity: mainContentOpacity }}
+    className="min-w-[300px] text-center"
+>
+    <nav className="flex flex-col gap-6 text-xl md:text-3xl font-heading font-bold text-gray-500 dark:text-zinc-400 text-center transition-colors duration-500">
+        <button 
+            onClick={() => handleScrollTo('hero')} 
+            className="hover:text-gray-900 dark:hover:text-white hover:scale-105 transition-all duration-300"
         >
-           <nav className="flex flex-col gap-6 text-xl md:text-3xl font-heading font-bold text-gray-400 dark:text-zinc-600 text-center transition-colors duration-500">
-               <button onClick={() => handleScrollTo('hero')} className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300">Hakkımda</button>
-               <button onClick={() => handleScrollTo('tecrube')} className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300">Tecrübe</button>
-               <button onClick={() => handleScrollTo('projeler')} className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300">Projeler</button>
-               <button onClick={() => handleScrollTo('iletisim')} className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300">İletişim</button>
-           </nav>
-        </motion.div>
+            Hakkımda
+        </button>
+        <button 
+            onClick={() => handleScrollTo('tecrube')} 
+            className="hover:text-gray-900 dark:hover:text-white hover:scale-105 transition-all duration-300"
+        >
+            Tecrübe
+        </button>
+        <button 
+            onClick={() => handleScrollTo('projeler')} 
+            className="hover:text-gray-900 dark:hover:text-white hover:scale-105 transition-all duration-300"
+        >
+            Projeler
+        </button>
+        <button 
+            onClick={() => handleScrollTo('iletisim')} 
+            className="hover:text-gray-900 dark:hover:text-white hover:scale-105 transition-all duration-300"
+        >
+            İletişim
+        </button>
+    </nav>
+</motion.div>
 
         {/* --- DÜZELTİLEN KISIM: SAĞ SIDEBAR NAVİGASYON İKONLARI --- */}
         <motion.div 
@@ -84,7 +108,7 @@ const SplitHeader = () => {
                 <FaHome />
                 {/* Tooltip: Yazı rengi Siyah/Beyaz yapıldı + Kayma animasyonu eklendi */}
                 <span className="absolute right-full mr-6 opacity-0 group-hover:opacity-100 group-hover:mr-4 transition-all duration-300 text-[10px] font-bold uppercase tracking-widest pointer-events-none text-gray-900 dark:text-white whitespace-nowrap">
-                    Home
+                    Ana Sayfa
                 </span>
             </button>
             
@@ -92,7 +116,7 @@ const SplitHeader = () => {
             <button onClick={() => handleScrollTo('tecrube')} className="text-xl text-gray-400 dark:text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 group relative flex items-center">
                 <FaBriefcase />
                 <span className="absolute right-full mr-6 opacity-0 group-hover:opacity-100 group-hover:mr-4 transition-all duration-300 text-[10px] font-bold uppercase tracking-widest pointer-events-none text-gray-900 dark:text-white whitespace-nowrap">
-                    Exp
+                    Deneyimler
                 </span>
             </button>
             
@@ -100,7 +124,7 @@ const SplitHeader = () => {
             <button onClick={() => handleScrollTo('projeler')} className="text-xl text-gray-400 dark:text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 group relative flex items-center">
                 <FaCode />
                 <span className="absolute right-full mr-6 opacity-0 group-hover:opacity-100 group-hover:mr-4 transition-all duration-300 text-[10px] font-bold uppercase tracking-widest pointer-events-none text-gray-900 dark:text-white whitespace-nowrap">
-                    Work
+                    Projeler
                 </span>
             </button>
             
@@ -108,7 +132,7 @@ const SplitHeader = () => {
             <button onClick={() => handleScrollTo('iletisim')} className="text-xl text-gray-400 dark:text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 group relative flex items-center">
                 <FaEnvelope />
                 <span className="absolute right-full mr-6 opacity-0 group-hover:opacity-100 group-hover:mr-4 transition-all duration-300 text-[10px] font-bold uppercase tracking-widest pointer-events-none text-gray-900 dark:text-white whitespace-nowrap">
-                    Contact
+                    İletişim
                 </span>
             </button>
         </motion.div>

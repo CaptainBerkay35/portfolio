@@ -23,7 +23,7 @@ export default function App() {
       {/* ÜST KATMAN */}
       <main className="relative z-10 bg-white dark:bg-brand-black transition-colors duration-500 shadow-2xl mb-[800px] rounded-b-3xl">
         
-        <div className="relative pt-[100vh]">
+        <div className="relative pt-[70vh]">
           
           {/* HERO (ID: hero) */}
           <section id="hero">

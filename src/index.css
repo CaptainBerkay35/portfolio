@@ -26,3 +26,13 @@
     display: none;
   }
 }
+/* Scrollbar'ı gizle ama kaydırmayı koru */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE ve Edge */
+    scrollbar-width: none;  /* Firefox */
+    scroll-behavior: smooth; /* Yumuşak kaydırma */
+}

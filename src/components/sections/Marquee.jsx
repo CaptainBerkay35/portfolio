@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 const TECHNOLOGIES = [
-  "React", "Next.js", "Tailwind CSS", "Framer Motion", "TypeScript", 
-  "JavaScript", "Redux", "Figma", "Git", "UI/UX Design"
+  "React", "Node.js", "MongoDB", "Express", "JavaScript","C#",".NET","Html","CSS","MSSQL", 
+  "TypeScript", "Tailwind CSS", "Framer Motion", "Git", "Agile"
 ];
 
 const Marquee = () => {

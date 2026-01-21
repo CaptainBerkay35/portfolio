@@ -4,27 +4,35 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 const EXPERIENCES = [
   {
     id: "01",
-    role: "Frontend Developer",
-    company: "Tech Solutions Inc.",
-    period: "2023 - Günümüz",
-    description: "React ve Next.js mimarilerini kullanarak kurumsal ölçekli projeler geliştirdim. Legacy kodları modernize ederek sayfa yüklenme hızlarını %40 optimize ettim.",
-    tech: ["React", "Next.js", "TypeScript", "Redux"]
+    role: "Software Developer",
+    company: "SaraglobalAI",
+    period: "Eylül 2025 - Günümüz",
+    description: "Yapay zeka destekli kurumsal CRM platformunun uçtan uca mimarisini tasarladım. Veritabanı tasarımından kullanıcı arayüzüne kadar tam kapsamlı full-stack geliştirme süreçlerini yönettim.", 
+    tech: ["AI Implementation", "Full-Stack", "Database Design", "CRM"]
   },
   {
     id: "02",
-    role: "UI/UX Designer",
-    company: "Creative Agency",
-    period: "2021 - 2023",
-    description: "Kullanıcı deneyimini merkeze alan arayüz tasarımları oluşturdum. Figma üzerinde kapsamlı bir Design System kurarak yazılım ve tasarım ekipleri arasındaki bağı güçlendirdim.",
-    tech: ["Figma", "Prototyping", "Adobe XD"]
+    role: "AI Model Trainer",
+    company: "Outlier",
+    period: "Temmuz 2024 - Mayıs 2025",
+    description: "Yazılım ve matematik odaklı yapay zeka modellerinin eğitimi için veri setleri hazırladım ve çeşitli domainlerde model performansını optimize eden görevlerde yer aldım.", 
+    tech: ["AI Training", "Mathematics", "Software Analysis"]
   },
   {
     id: "03",
-    role: "Freelance Developer",
-    company: "Self Employed",
-    period: "2020 - 2021",
-    description: "Global müşteriler için özel CMS çözümleri ve e-ticaret altyapıları hazırladım. Müşteri ihtiyaçlarına yönelik %100 özelleştirilebilir temalar kodladım.",
-    tech: ["WordPress", "PHP", "JavaScript", "SCSS"]
+    role: "Frontend Developer",
+    company: "Teknodev",
+    period: "Temmuz 2023 - Ekim 2023",
+    description: "React, JavaScript ve TypeScript kullanarak kurumsal web projelerinin frontend mimarisini geliştirdim. Spica Engine üzerinden backend entegrasyonlarını gerçekleştirdim.", 
+    tech: ["React", "TypeScript", "Spica Engine", "Agile"]
+  },
+  {
+    id: "04",
+    role: "Frontend Developer",
+    company: "PenDigital",
+    period: "Temmuz 2022 - Eylül 2022",
+    description: "Bireysel projeler odaklı çalışarak modern web geliştirme süreçlerinde deneyim kazandım. WordPress tabanlı özel web sitelerinin tasarımı ve uçtan uca yayına alınması süreçlerini yöneterek teknik yetkinliğimi güçlendirdim.", 
+    tech: ["WordPress", "Web Development", "UI Implementation"]
   }
 ];
 
@@ -46,7 +54,7 @@ const Experience = () => {
     <section className="bg-white dark:bg-brand-black transition-colors duration-500">
       
       {/* --- BÖLÜM 1: STICKY SCROLL --- */}
-      <div ref={containerRef} className="relative hidden md:flex flex-row h-[300vh] max-w-7xl mx-auto"> 
+      <div ref={containerRef} className="relative hidden md:flex flex-row  max-w-7xl mx-auto"style={{ height: `${EXPERIENCES.length * 100}vh` }}> 
 
         {/* --- SOL PANEL (SABİT) --- */}
         <div className="w-1/2 h-screen sticky top-0 flex flex-col justify-center pl-10 lg:pl-20 relative">
@@ -158,16 +166,16 @@ const StickyContent = ({ data, range, progress, index, total }) => {
   }
 
   const opacity = useTransform(
-    progress, 
-    [range[0], range[0] + 0.1, range[1] - 0.1, range[1]], 
-    opacityRange
-  );
+  progress, 
+  [range[0], range[0] + 0.07, range[1] - 0.07, range[1]], 
+  opacityRange
+);
 
-  const y = useTransform(
-    progress, 
-    [range[0], range[0] + 0.1, range[1] - 0.1, range[1]], 
-    yRange
-  );
+const y = useTransform(
+  progress, 
+  [range[0], range[0] + 0.07, range[1] - 0.07, range[1]], 
+  yRange
+);
   
   return (
     <motion.div 
@@ -192,39 +200,38 @@ const StickyContent = ({ data, range, progress, index, total }) => {
 
 // 2. DOT INDICATOR (NOKTALAR - MONOCHROME)
 const DotIndicator = ({ index, progress, total }) => {
-  const [isActive, setIsActive] = useState(false);
-  
-  useEffect(() => {
-    const unsubscribe = progress.on("change", (v) => {
-      const step = 1 / total;
-      const start = index * step;
-      // Hassasiyet ayarı
-      setIsActive(v >= start - 0.05); 
-    });
-    return () => unsubscribe();
-  }, [progress, index, total]);
+  const step = 1 / total;
+  const start = index * step;
+  const end = (index + 1) * step;
 
+  // Renk ve Scale değerlerini doğrudan scrollProgress'e bağlıyoruz
+  // [Giriş Aralığı], [Çıkış Değerleri]
+  const bgColor = useTransform(
+    progress,
+    [start - 0.02, start, end - 0.02, end],
+    ["#ffffff", "#2563EB", "#2563EB", "#ffffff"] // Light Mode: Beyaz -> Mavi -> Beyaz
+  );
+
+  const darkBgColor = useTransform(
+    progress,
+    [start - 0.02, start, end - 0.02, end],
+    ["#18181b", "#ffffff", "#ffffff", "#18181b"] // Dark Mode: Siyah -> Beyaz -> Siyah
+  );
+
+  const scale = useTransform(
+    progress,
+    [start - 0.02, start, end - 0.02, end],
+    [1, 1.3, 1.3, 1]
+  );
+
+  // Tema bilgisini almak için CSS değişkeni yerine dinamik class kullanacağız
   return (
     <motion.div 
-      animate={{ 
-        backgroundColor: isActive ? "var(--active-bg)" : "var(--inactive-bg)",
-        scale: isActive ? 1.3 : 1,
-        borderColor: isActive ? "var(--active-border)" : "var(--inactive-border)"
+      style={{ 
+        scale,
+        backgroundColor: bgColor, // Framer motion temaya göre bunu yönetebilir
       }}
-      style={{
-        // ▼▼▼ LIGHT MODE RENKLERİ BURADA ▼▼▼
-        "--active-bg": "#2563EB",      // Aktifken Mavi (Blue-600)
-        "--inactive-bg": "#ffffff",    // Pasifken Beyaz
-        "--active-border": "#2563EB",  // Aktif Sınır
-        "--inactive-border": "#D1D5DB" // Pasif Sınır (Gray-300)
-      }}
-      className={`w-4 h-4 rounded-full border-4 z-20 transition-all duration-300
-        ${isActive 
-            // ▼▼▼ DARK MODE RENKLERİ BURADA ▼▼▼
-            ? 'dark:bg-brand-accent dark:border-brand-accent'       // Aktif (Parlak)
-            : 'dark:bg-brand-black dark:border-brand-gray/40'       // Pasif (Sönük)
-        }
-      `}
+      className="w-4 h-4 rounded-full border-2 border-gray-300 dark:border-brand-gray/40 z-20 dark:bg-brand-black"
     />
   );
 };
