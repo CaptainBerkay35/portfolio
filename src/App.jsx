@@ -1,5 +1,6 @@
 import SplitHeader from './components/layout/SplitHeader';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react'; 
 import ScrollIndicator from './components/ui/ScrollIndicator'; 
 import ThemeToggle from './components/ui/ThemeToggle'; 
 import Hero from './components/sections/Hero';
@@ -58,7 +59,7 @@ export default function App() {
       <div id="iletisim">
         <Footer />
       </div>
-      
+      <Analytics />
     </div>
   );
 }
